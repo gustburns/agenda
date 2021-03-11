@@ -62,6 +62,16 @@ def evento(request):
 
 
 @login_required(login_url='/login')
+def agenda_historico(request):
+    usuario = request.user
+    data_atual = datetime.now()
+    evento = Evento.objects.filter(usuario=usuario,
+                                   data_evento__lt=data_atual).order_by('-data_evento')
+    response = {'eventos': evento}
+    return render(request, 'historico-eventos.html', response)
+
+
+@login_required(login_url='/login')
 def submit_evento(request):
     if request.POST:
         titulo = request.POST.get('titulo')

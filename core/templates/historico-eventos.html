@@ -1,12 +1,9 @@
 {% extends "model-page.html" %}
 
 {% block content %}
-    <h2>Agendamentos</h2>
-    <a href="evento/">
-        <button type="button">Novo Evento</button>
-    </a>
-    <a href="historico/">
-        <button type="button">Histórico de Eventos</button>
+    <h2>Histórico de Agendamentos</h2>
+    <a href="http://127.0.0.1:8000/agenda/">
+        <button type="button">Voltar</button>
     </a>
     <ul style="font-size: 18px">
         {% for evento in eventos %}
